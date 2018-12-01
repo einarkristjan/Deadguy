@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Deadguy </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="shrink-to-fit=no, user-scalable=no">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <style>
+    html {
+        height: 100%;
+        width: 100%;
+        display: table;
+        overflow: hidden;
+    }
+    body {
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        cursor: crosshair;
+    }
+    canvas {
+        /* safari fix - dont remove */
+        background: #000;
+    }
+    </style>
+</head>
+<body>
+<script>(function() {
+var pre = document.createElement('pre');
+pre.innerHTML = typeof WebAssembly === 'undefined' ? 'ERROR: Your browser does not support WebAssembly' : "Loading...";
+document.body.appendChild(pre);
+})();</script>
+
+<script src="Box2D_v2.3.1_min.wasm.js"></script>
+<script src="pixi_v4.7.0_min.js"></script>
+
+<script src="src/ej/mod.js"></script>
+<script src="src/ej/vec2.js"></script>
+<script src="src/ej/time.js"></script>
+<script src="src/ej/camera.js"></script>
+<script src="src/ej/layers.js"></script>
+<script src="src/ej/audio.js"></script>
+<script src="src/ej/debug.js"></script>
+<script src="src/ej/console.js"></script>
+<script src="src/ej/entities.js"></script>
+<script src="src/ej/entity.js"></script>
+<script src="src/ej/loop.js"></script>
+<script src="src/ej/input.js"></script>
+
+<script src="src/game.js"></script>
+<script src="src/static.js"></script>
+<script src="src/dynamic.js"></script>
+<script src="src/players.js"></script>
+<script src="src/enemies.js"></script>
+<script src="src/intro.js"></script>
+<script src="src/uis.js"></script>
+<script src="src/map.js"></script>
+
+<script>DG_Game.init();</script>
+
+</body>
+</html>
