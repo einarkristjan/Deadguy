@@ -196,8 +196,14 @@ class DG_Enemies {
 
             this._spawn_vector.set(500, 0);
             this._spawn_vector.rotate(EJ.get_random(0, Math.PI * 2));
+            this._spawn_vector._x += player._position._x;
+            this._spawn_vector._y += player._position._y;
 
-            let enemy = new DG_Enemy(player._position._x + this._spawn_vector._x, player._position._y + this._spawn_vector._y, 0);
+            let enemy = new DG_Enemy(
+                this._spawn_vector._x,
+                this._spawn_vector._y,
+                Math.atan2(-this._spawn_vector._y, -this._spawn_vector._x)
+            );
 
             this._enemies[enemy.__id] = enemy;
             this.enemy_count++;
