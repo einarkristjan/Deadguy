@@ -185,6 +185,7 @@ class DG_Enemies {
 
         this.enemy_count = 0;
         this._next_spawn_time = 0;
+        this._spawn_speed = 5000;
     }
 
     static update() {
@@ -192,7 +193,8 @@ class DG_Enemies {
             this.enemy_count < 30 && this._next_spawn_time < EJ_Time._now &&
             this._player._state !== DG_Players._state._dead) {
             let player = DG_Players.get_player();
-            this._next_spawn_time = EJ_Time._now + 5000;
+            this._next_spawn_time = EJ_Time._now + this._spawn_speed;
+            this._spawn_speed = this._spawn_speed <= 1000 ? 1000 : this._spawn_speed - 10;
 
             this._spawn_vector.set(500, 0);
             this._spawn_vector.rotate(EJ.get_random(0, Math.PI * 2));
